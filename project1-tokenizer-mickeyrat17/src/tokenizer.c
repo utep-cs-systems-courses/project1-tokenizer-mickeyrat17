@@ -46,3 +46,20 @@ char *word_terminator(char *word)
 
   return word+i;
 }
+
+/*counts number of words in the str argument*/
+int count_words(char *str)
+{
+  if(str == NULL || str == "" || str == "\0")
+    return 0;
+
+  int count = 0;
+  while (str[0] != '\0')
+  {
+    if(word_start(str)[0] == '\0')
+      break;
+    str = word_terminator(str);
+    count++;
+  }
+  return count;
+}
